@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'ColgateReady-Bold';
+    src: url('../../assets/fonts/ColgateReady-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-BoldItalic';
+    src: url('../../assets/fonts/ColgateReady-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-ExtraLight';
+    src: url('../../assets/fonts/ColgateReady-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ColgateReady-ExtraLightItalic';
+    src: url('../../assets/fonts/ColgateReady-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-Heavy';
+    src: url('../../assets/fonts/ColgateReady-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-HeavyItalic';
+    src: url('../../assets/fonts/ColgateReady-HeavyItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-Italic';
+    src: url('../../assets/fonts/ColgateReady-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-Light';
+    src: url('../../assets/fonts/ColgateReady-Light.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-LightItalic';
+    src: url('../../assets/fonts/ColgateReady-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'ColgateReady-Regular';
+    src: url('../../assets/fonts/ColgateReady-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
