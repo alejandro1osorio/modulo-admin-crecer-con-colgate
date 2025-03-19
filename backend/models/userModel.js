@@ -43,6 +43,7 @@ const User = {
       LEFT JOIN puntos_de_venta ON usuarios.Puntos_de_Venta_id = puntos_de_venta.id
       LEFT JOIN visualizaciones ON usuarios.id = visualizaciones.Usuarios_id
       LEFT JOIN capacitaciones ON FIND_IN_SET(capacitaciones.id, visualizaciones.estados)
+      ORDER BY usuarios.id ASC
     `);
     return rows;
   },

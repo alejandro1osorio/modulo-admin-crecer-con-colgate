@@ -9,16 +9,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// rutas de usuarios
+// Rutas de usuarios
 app.use('/api/users', userRoutes);
 
-// middleware de manejo de errores
+// Middleware de manejo de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8004;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

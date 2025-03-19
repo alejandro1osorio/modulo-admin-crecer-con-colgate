@@ -1,5 +1,5 @@
 import User from '../models/userModel.js';
-import { generateExcelWithExcelJS } from '../utils/excelExport.js'; 
+import { generateExcelWithExcelJS } from '../utils/excelExport.js';
 
 export const getUsers = async (req, res, next) => {
   try {
@@ -12,18 +12,18 @@ export const getUsers = async (req, res, next) => {
 
 export const downloadExcel = async (req, res, next) => {
   try {
-    const users = await User.findAllWithTrainings(); // obtener datos
-    const filePath = await generateExcelWithExcelJS(users); // eenerar excel con la funcion correcta
+    const users = await User.findAllWithTrainings(); // Obtener datos
+    const buffer = await generateExcelWithExcelJS(users); // Generar Excel como buffer
 
-    // descargar archivo
-    res.download(filePath, 'informe_general.xlsx', (err) => {
-      if (err) {
-        console.error('Error al enviar el archivo:', err);
-        next(err);
-      }
-    });
+    // Configurar encabezados para la descarga
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.setHeader('Content-Disposition', 'attachment; filename="informe_general.xlsx"');
+
+    // Enviar el buffer al cliente
+    res.send(buffer);
   } catch (error) {
     console.error('Error al generar el archivo Excel:', error);
     next(error);
   }
 };
+

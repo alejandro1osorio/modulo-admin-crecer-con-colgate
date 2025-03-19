@@ -25,7 +25,7 @@ export default {
           },
         });
 
-        const response = await fetch('https://pruebas2.kagencia.com/api/users/download');
+        const response = await fetch('http://localhost:8084/api/users/download');
         if (!response.ok) {
           throw new Error('Error al descargar el archivo');
         }

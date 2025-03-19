@@ -15,9 +15,11 @@ export const generateExcelWithExcelJS = async (data) => {
     6: "Lady Speed Stick Hair Minimizer",
     7: "Cepillo Colgate Sensitive",
     8: "Colgate Sensitive Pro Alivio Xtreme Temperatures",
-    9: "Colgate Total",
+    9: "Colgate Total 12",
     10: "Cepillo Colgate Zig Zag Charcoal",
     11: "Cepillo Colgate Slim Soft",
+    12: "Colgate Total",
+    13: "Colgate Total Prevención Activa",
   }; 
 
   const capacitacionesMap = {};
@@ -53,7 +55,7 @@ export const generateExcelWithExcelJS = async (data) => {
   };
 
 
-  const cleanedData = data.map((row) => {
+  const cleanedData = data.map((row, rowIndex) => {
     const estados = JSON.parse(row.estado || '{}');
     const estadosPorCapacitacion = Object.keys(capacitacionesMap).reduce((acc, id) => {
       const nombreCapacitacion = capacitacionesMap[id] || `Capacitación ${id}`;
@@ -62,7 +64,9 @@ export const generateExcelWithExcelJS = async (data) => {
     }, {});
 
     return {
-      ID: sanitizeString(row.id) || '--',
+      //ID: sanitizeString(row.id) || '--',
+      //ID: index + 1,
+      ID: rowIndex + 1,
       'Correo Electrónico': sanitizeString(row.correo) || '--',
       Distribuidor: sanitizeString(row.distribuidor) || '--',
       //Occ: sanitizeString(row.occ) || '--',
@@ -186,9 +190,11 @@ export const generateExcelWithExcelJS = async (data) => {
     { width: 28 }, // training 6
     { width: 22 }, // training 7
     { width: 43 }, // training 8
-    { width: 12 }, // training 9
+    { width: 16 }, // training 9
     { width: 28 }, // training 10
     { width: 21 }, // training 11
+    { width: 21 }, // training 12
+    { width: 30 }, // training 13
   ];
 
   // ajustar altura de filas

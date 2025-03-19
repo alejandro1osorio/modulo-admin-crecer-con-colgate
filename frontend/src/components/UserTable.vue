@@ -134,7 +134,7 @@
     methods: {
       async fetchUsers() {
         try {
-          const response = await axios.get("https://pruebas2.kagencia.com/api/users");
+          const response = await axios.get("http://localhost:8084/api/users"); /* https://pruebas2.kagencia.com/api/users - http://localhost:5000 */
           this.users = response.data;
           this.filteredUsers = this.users;
         } catch (error) {
