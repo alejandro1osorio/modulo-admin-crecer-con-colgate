@@ -201,10 +201,16 @@ export const generateExcelWithExcelJS = async (data) => {
   worksheet.getRow(1).height = 40; // Fila 1 (Datos Generales y Visualización)
   worksheet.getRow(2).height = 90; // Fila 2 (Encabezados)
 
-  // guardar el archivo
-  const filePath = 'informe_general_exceljs.xlsx';
+ // guardar el archivo
+/*   const filePath = 'informe_general_exceljs.xlsx';
   await workbook.xlsx.writeFile(filePath);
   console.log('Archivo generado correctamente con exceljs:', filePath);
 
-  return filePath;
+  return filePath;  */
+
+    // Generar el buffer en lugar de escribir en disco
+    console.log("✅ Generando archivo Excel en buffer...");
+    const buffer = await workbook.xlsx.writeBuffer();
+  
+    return buffer;
 };

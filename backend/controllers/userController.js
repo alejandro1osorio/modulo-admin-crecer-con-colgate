@@ -12,18 +12,25 @@ export const getUsers = async (req, res, next) => {
 
 export const downloadExcel = async (req, res, next) => {
   try {
-    const users = await User.findAllWithTrainings(); // Obtener datos
-    const buffer = await generateExcelWithExcelJS(users); // Generar Excel como buffer
+    const users = await User.findAllWithTrainings();
 
-    // Configurar encabezados para la descarga
-    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    if (!users || users.length === 0) {
+      return res.status(404).json({ message: 'No hay datos para exportar' });
+    }
+
+    console.log("✅ Usuarios obtenidos para Excel:", users);
+
+    const buffer = await generateExcelWithExcelJS(users);
+
     res.setHeader('Content-Disposition', 'attachment; filename="informe_general.xlsx"');
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
-    // Enviar el buffer al cliente
-    res.send(buffer);
+    res.send(Buffer.from(buffer));
+    console.log("✅ Archivo Excel enviado correctamente");
   } catch (error) {
-    console.error('Error al generar el archivo Excel:', error);
+    console.error('❌ Error al generar el archivo Excel:', error);
     next(error);
   }
 };
+
 
